@@ -1,0 +1,131 @@
+.header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: top 0.3s ease-in-out;
+    z-index: 9999;
+}
+.header.scrolled {
+    top: -60px; 
+}
+.head{
+    display: flex;
+    align-items: center;
+    background-color: #d63125;
+    color: #fff;
+}
+.logo{
+    margin: 10px;
+}
+.brand-name{
+    display: flex;
+    flex-direction: column;
+}
+.navbar-center{
+    background-color: #ffd11a;
+    text-align: center;
+}
+.list-menu li{
+    display: inline;
+    list-style-type: none;
+    margin: 0 10px 0 10px;
+}
+.menu-item a{
+    text-decoration: none;
+    color: #000;
+    font-size: 22px;
+}
+.container{
+    position: absolute;
+    top: 25%;
+    left:5%;
+    /* width: 100%; */
+    /* background-color: #d63125; */
+    z-index: 999;
+}
+.animated-text{
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+}
+.animated-text b{
+    display: inline-block;
+    animation: slide-in 2s linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+}
+}
+
+/* Slide */
+#slid{
+    position: relative;
+    overflow: hidden;
+    width: calc(100% - 20px); /* Chiều dài bằng toàn bộ trang với margin 10px */
+    /* margin: 10px; */
+    height: 300px;
+}
+.panel {
+    padding: 50px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.panel img{
+    width: 100%;
+    height: 200px;
+}
+.danhSach{
+    text-decoration: none;
+    margin-top: 10px;
+    position: absolute;
+    bottom: 10%;
+    left: 45%;
+}
+.danhSach ul{
+    display: inline-block;
+    padding: 10px;
+    list-style: none;
+}
+.danhSach ul li{
+    display: inline-block;
+    margin: 0 5px;
+    width: 20px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.danhSach ul li:active{
+    background-color: black;
+}
+.mail{
+    text-align: center;
+    background-color: #f2c926;
+    /* justify-content: center; */
+    /* align-items: center; */
+    display: block;
+    width: 1080px;
+    height: 900px;
+}
+.mail-content{
+    position: absolute;
+    text-align: left;
+    left: 13%;
+    width: 70%;
+    height: 68%;
+    background-color: #fff;
+    border-radius: 10px;
+}

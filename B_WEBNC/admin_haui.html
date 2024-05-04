@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="jquery_new.js"></script>
+    <link rel="stylesheet" href="admin_haui.css">
+    <title>Administrator</title>
+</head>
+<body>
+    <div class="header">
+        <div class="menu menu-head">
+            <ul class="nav justify-content-end navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+                <li class="nav-item">
+                    <a class="nav-link" href="user.html">Admin
+                        <i class="fa fa-user na" title="Cá nhân"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" style="border-right: 1px solid #c3c3c3; padding-right: 20px;" href="${pageContext.request.contextPath}/Home.jsp" >
+                <img class="logo-it" src="Logo Haui.png" width="50px" height="50px">
+                <i  title="Logo"><b>ĐẠI HỌC CÔNG NGHIỆP HÀ NỘI</b> - Administrator</i></a>
+            <form class="form-inline" style="margin-right: 20px;" >
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-secondary" type="submit">Search</button>
+            </form>
+            <!-- <a class="oders nav-chose" href="#" style="border-right: 1px solid #c3c3c3;">Đơn hàng</a> -->
+            <a class="nav-chose contact" href="#">Liên hệ</a>
+        </nav>
+    </div>
+    <div class="menu-content">
+        <div class="form-menu">
+            <ul>
+                <li class="form-menu-trang-chu fo " data-show-item="trang-chu">Trang chủ Admin</li>
+                <li class="form-menu-danh-muc fo">Quản lý danh mục
+                    <ul class="form-menu-child">
+                        <li class="menu-child child-item" data-show-item="loai-danh-muc">Thêm danh mục</li>
+                        <li class="menu-child child-item" data-show-item="san-pham">Danh mục</li>
+                        <li class="menu-child child-item" data-show-item="chi-tiet">Chi tiết</li>
+                    </ul>
+                </li>
+                <li class="form-menu-ql-khach-hang fo">Thông tin
+                    <ul class="form-menu-child">
+                        <li class="menu-child child-item" data-show-item="danh-sach-khach-hang">Danh sách nhà tài trợ</li>
+                        <li class="menu-child child-item" data-show-item="danh-sach-don-hang">Danh sách cựu sinh viên</li>
+                        <!-- <li class="menu-child child-item" data-show-item="khach-hang-lien-he">Khách hàng liên hệ</li> -->
+                    </ul>
+                </li>
+                <li class="form-menu-ql-user fo">Quản lý User
+                    <ul class="form-menu-child">
+                        <li class="menu-child child-item" data-show-item="quan-ly-user">Quản lý User</li>
+                        <li class="menu-child child-item" data-show-item="danh-sach-quyen">Danh sách quyền</li>
+                        <li class="menu-child child-item" data-show-item="thong-tin-user">Thông tin User</li>
+                        <li class="menu-child child-item" >Thoát</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="show-form-menu">
+            <div id="trang-chu" class="form-menu-danh-muc-item sho show-item">
+                <div class="home-admin">
+                    <h3 class="alert-adimin">Nếu cần hỗ trợ kĩ thuật vui lòng liên hệ thông tin sau</h3>
+                    <p class="send-email">Gửi eMail đến kỹ thuật: <span class="mail al">alernwad113@gmail.com</span></p>
+                    <p class="send-phone">Hoặc gọi đến hotLine: <span class="phone al">0333.333.333</span></p>
+                    <p> Xin chân thành cám ơn đã sử dụng dịch vụ!</p>
+                </div>
+            </div>
+            <div id="loai-danh-muc" class="form-menu-danh-muc-item sho">
+                <div class="danh-muc-item show-item inn">
+                    <div class="infor" >
+                        <h5 class="infor-text">Thông tin chung</h5>
+                        <label for="imge">Hình ảnh: </label>
+                        <input type="file" name="imge" id="imge" class="imge">
+                        <input type="button" value="Nhập" name="image" id="imge-button">
+                        <br><br>
+
+                        <label for="name">Tên danh mục: </label>
+                        <input type="text" name="name" id="name" class="name" placeholder="Nhập tên danh mục"><br><br>
+
+                        <label for="memory">Danh mục: </label>
+                        <select id="bo-nho-dien-thoai" class="memory" name="memory">
+                            <option value="32">Trang Chủ</option>
+                            <option value="64">Thư Mời</option>
+                            <option value="128">Giới Thiệu</option>
+                            <option value="256">Tin Tức</option>
+                            <option value="512">Đội Ngũ Giảng Viên</option>
+                            <option value="1024">Cựu Sinh Viên</option>
+                        </select><br><br>
+                        <label for="noidung">Nhập nội dung danh mục: </label>
+                        <input type="text" name="noidung" id="noidung" class="noidung" placeholder="Nhập nội dung" style="height: 200px;"><br><br>
+                        <label for="noidung">Hoặc thêm bằng file</label>
+                        <input type="file" name="noidung" id="noidung" class="noidung" placeholder="Nhập nội dung">
+                        <input type="button" name="file" value="Nhập" id=""><br><br>
+                    
+                    </div>
+                </div>
+            </div>
+            <div id="san-pham" class="form-menu-danh-muc-item sho">
+                <div class="danh-muc-item show-item">
+                    <h5>Danh sách danh mục</h5>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                              <th scope="col">STT</th>
+                              <th scope="col">Danh Mục</th>
+                              <th scope="col">Tiêu đề</th>
+                              <th scope="col">Ảnh</th>  
+                              <th scope="col">Tác vụ</th>  
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Trang Chủ</td>
+                                <td colspan="2">Kỉ niệm 25 năm thành lập khoa công nghệ thông tin</td>
+                                
+                                <td>
+                                    <a href="#" class="btn btn-primary">Sửa</a>
+                                    <a href="#" class="btn btn-danger">Xóa</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Cựu Sinh Viên</td>
+                                <td>Thông tin cựu sinh viên</td>
+                                <td>fat</td>
+                                <td>
+                                    <a href="#" class="btn btn-primary">Sửa</a>
+                                    <a href="#" class="btn btn-danger">Xóa</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td >Thư mời</td>
+                                <td colspan="2">Thư mời khách hàng</td>
+                                <td>
+                                    <a href="#" class="btn btn-primary">Sửa</a>
+                                    <a href="#" class="btn btn-danger">Xóa</a>
+                                </td>
+                            </tr>
+                      </table>
+                </div>
+            </div>
+            <div id="chi-tiet" class="form-menu-danh-muc-item sho">
+                <div class="danh-muc-item show-item">
+                    <h5>Chi tiết sản phẩm</h5>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                              <th scope="col">STT</th>
+                              <th scope="col">Tên</th>
+                              <th scope="col">Ảnh</th>
+                              <th scope="col">Danh mục</th>  
+                              <th scope="col">Nội dung</th> 
+                              <th scope="col">Tác vụ</th> 
+                            
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>Mark</td>
+                             
+                                <td>
+                                    <a href="#" class="btn btn-primary">Xem thêm</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>fat</td>
+                                <td>Mark</td>
+                               
+                                <td>
+                                    <a href="#" class="btn btn-primary">Xem thêm</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td >Larry the Bird</td>
+                                <td>@twitter</td>
+                                <td>ÁD</td>
+                                <td>Mark</td>
+                                
+                                <td>
+                                    <a href="#" class="btn btn-primary">Xem thêm</a>
+                                </td>
+                            </tr>
+                      </table>
+                </div>
+            </div>
+            <div id="danh-sach-khach-hang" class="form-menu-ql-khach-hang-item sho">
+                <div class="ql-khach-hang-item show-item">
+                    <h5>Danh sách nhà tài trợ</h5>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                              <th scope="col">STT</th>
+                              <th scope="col">Tên</th>
+                              <th scope="col">Ảnh</th>
+                              <th scope="col">Thông tin</th>  
+                              <th scope="col">Trạng thái</th>  
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td><a href="#" class="btn btn-primary">Sửa</a>
+                                    <a href="#" class="btn btn-danger">Xóa</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>fat</td>
+                                <td><a href="#" class="btn btn-primary">Sửa</a>
+                                    <a href="#" class="btn btn-danger">Xóa</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td >Larry the Bird</td>
+                                <td>@twitter</td>
+                                <td>ÁD</td>
+                                <td><a href="#" class="btn btn-primary">Sửa</a>
+                                    <a href="#" class="btn btn-danger">Xóa</a></td>
+                            </tr>
+                      </table>
+                </div>
+            </div>
+            <div id="danh-sach-don-hang" class="form-menu-ql-khach-hang-item sho">
+                <div class="ql-khach-hang-item show-item">
+                    <h5>Danh sách cựu sinh viên</h5>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                              <th scope="col">STT</th>
+                              <th scope="col">Tên</th>
+                              <th scope="col">Ảnh</th>
+                              <th scope="col">Thông tin</th>  
+                              <th scope="col">Trạng thái</th>  
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td><a href="#" class="btn btn-primary">Sửa</a>
+                                    <a href="#" class="btn btn-danger">Xóa</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>fat</td>
+                                <td><a href="#" class="btn btn-primary">Sửa</a>
+                                    <a href="#" class="btn btn-danger">Xóa</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td >Larry the Bird</td>
+                                <td>@twitter</td>
+                                <td>ÁD</td>
+                                <td><a href="#" class="btn btn-primary">Sửa</a>
+                                    <a href="#" class="btn btn-danger">Xóa</a></td>
+                            </tr>
+                      </table>
+                </div>
+            </div>
+            <div id="quan-ly-user" class="form-menu-ql-user-item sho">
+                <div class="ql-user-item show-item">
+                    <h5>Danh sách người dùng</h5>
+                    <a href="#" class="btn btn-primary">Thêm User</a>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Tên</th>
+                              <th scope="col">Quyền hạn</th>
+                              <th scope="col">Trạng thái</th>  
+                              <th scope="col">Tác vụ</th>  
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>
+                                    <a href="#" class="btn btn-primary">Cập nhật</a>
+                                    <a href="#" class="btn btn-danger">Xóa</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>fat</td>
+                                <td>
+                                    <a href="#" class="btn btn-primary">Cập nhật</a>
+                                    <a href="#" class="btn btn-danger">Xóa</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td >Larry the Bird</td>
+                                <td>@twitter</td>
+                                <td>ÁD</td>
+                                <td>
+                                    <a href="#" class="btn btn-primary">Cập nhật</a>
+                                    <a href="#" class="btn btn-danger">Xóa</a>
+                                </td>
+                            </tr>
+                      </table>
+                </div>
+            </div>
+            <div id="danh-sach-quyen" class="form-menu-ql-user-item sho">
+                <div class="ql-user-item show-item">Đây là danh sách các quyền</div>
+            </div>
+            <div id="thong-tin-user" class="form-menu-ql-user-item sho">
+                <div class="ql-user-item show-item">
+                    <h5>Thông tin User</h5>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Tên</th>
+                              <th scope="col">Quyền hạn</th>
+                              <th scope="col">Trạng thái</th>  
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>as</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>ggg</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td >Larry the Bird</td>
+                                <td>@twitter</td>
+                                <td>dadsa</td>
+                            </tr>
+                      </table>
+                </div>
+            </div>
+        </div>
+      </div>
+    <script src="admin_haui.js"></script>
+</body>
+</html>

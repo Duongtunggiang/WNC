@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HaNoi Univer</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="jquery_new.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <script>
+        $(document).ready(function() {
+            var previousScroll = $(window).scrollTop();
+
+            $(window).scroll(function() {
+                var currentScroll = $(this).scrollTop();
+
+                if (currentScroll > previousScroll) {
+                    $('.header').addClass('scrolled');
+                } else {
+                    $('.header').removeClass('scrolled');
+                }
+                setTimeout(function() {
+                        $('.header').removeClass('scrolled');
+                }, 300);
+                previousScroll = currentScroll;
+            });
+        });
+        $(document).ready(function() {
+            $(".animated-text b span").each(function(index) {
+                $(this).css("animation-delay", index * 100 + "ms");
+            });
+        });
+        $(document).ready(function(){
+            var currentSlideIndex = 0;
+            var slideCount = $(".panel").length;
+            var isAnimating = false;
+
+            function showSlide(index) {
+                $(".panel").fadeOut("slow");
+                $(".panel").eq(index).fadeIn("slow");
+            }
+
+            function nextSlide() {
+                currentSlideIndex++;
+                if (currentSlideIndex >= slideCount) {
+                    currentSlideIndex = 0;
+                }
+                showSlide(currentSlideIndex);
+            }
+
+            function previousSlide() {
+                currentSlideIndex--;
+                if (currentSlideIndex < 0) {
+                    currentSlideIndex = slideCount - 1;
+                }
+                showSlide(currentSlideIndex);
+            }
+
+            // $("#flip").click(function(){
+            //     if (!isAnimating) {
+            //         previousSlide();
+            //     }
+            // });
+
+            // $("#flop").click(function(){
+            //     if (!isAnimating) {
+            //         nextSlide();
+            //     }
+            // });
+
+            setInterval(function() {
+                if (!isAnimating) {
+                    nextSlide();
+                }
+            }, 4000);
+
+            $('.danhSach ul li').click(function(){
+                var index = $(this).index();
+                if(index !== currentSlideIndex){
+                    showSlide(index);
+                    currentSlideIndex = index;
+                    
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div class="head">
+            <div class="logo">
+                <img width="50" height="50" style="margin: 10px;" src="Logo Haui.png" alt="">
+            </div>
+            <div class="brand-name">
+                <h2>ĐẠI HỌC CÔNG NGHIỆP HÀ NỘI</h2>
+                <h5>KHOA CÔNG NGHỆ THÔNG TIN</h5>
+            </div>
+        </div>
+        <nav class="navbar-center">
+            <ul class="list-menu">
+                <li class="menu-item"><a href="#">Thư mời</a></li>
+                <li class="menu-item"><a href="#">Giới thiệu</a></li>
+                <li class="menu-item"><a href="#">Tin tức</a></li>
+                <li class="menu-item"><a href="#">Đội ngũ giảng viên</a></li>
+                <li class="menu-item"><a href="#">Cựu sinh viên</a></li>
+            </ul>
+        </nav>        
+    </div>
+
+    <div class="container">
+        <h3 class="animated-text"><b>LỄ KỶ NIỆM 25 NĂM THÀNH LẬP KHOA CÔNG NGHỆ THÔNG TIN</b></h3>
+        <div id="slid">
+            <!-- <input type="button" id="flip" value="&lt"> -->
+            <div class="panel"><img src="https://media.edunet.vn/Media/News/images/H%E1%BB%8Dc%20ph%C3%AD%20%C4%91%E1%BA%A1i%20h%E1%BB%8Dc%20C%C3%B4ng%20nghi%E1%BB%87p%20H%C3%A0%20N%E1%BB%99i%20-%20HaUI(1).jpg" alt=""></div>
+            <div class="panel"><img src="https://www.haui.edu.vn/dnn/web/haui/assets/images/video/vd2.webp" alt=""></div>
+            <div class="panel"><img src="https://reviewedu.net/wp-content/uploads/2021/07/dai-hoc-cong-nghiep-ha-noi.jpg" alt=""></div>
+            <!-- <input type="button" id="flop" value="&gt"> -->
+            <div class="danhSach">
+                <ul>
+                    <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <div class="mail">
+            <h4><b>Thư mời</b></h4>
+            <div class="mail-content">
+                <p>ajsbd asd hasdb asd fajdsbf oaij fajb</p>
+                <p>s aidf oadjabdkfj badfjaidg</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+
+    </div>
+   
+
+</body>
+</html>
